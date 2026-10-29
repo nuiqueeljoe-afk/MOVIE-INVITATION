@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171311">
+  <meta name="description" content="A spooky little movie date invitation for October 31 at SM City Taytay.">
+  <title>One Spooky Little Date</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #171311;
+      --paper: #f0dfc0;
+      --muted-paper: #c9b99c;
+      --red: #c64b37;
+      --gold: #d3a65b;
+      --line: rgba(240, 223, 192, .22);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 50% 12%, rgba(116, 48, 34, .27), transparent 35rem),
+        var(--ink);
+      color: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.18' filter='url(%23n)'/%3E%3C/svg%3E");
+      content: "";
+      opacity: .14;
+      pointer-events: none;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(100% - 36px, 1060px);
+      margin-inline: auto;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 25px;
+      color: var(--muted-paper);
+      font-family: Arial, sans-serif;
+      font-size: .67rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .topline span:last-child { color: var(--gold); }
+
+    .poster {
+      position: relative;
+      display: grid;
+      min-height: 620px;
+      place-items: center;
+      overflow: hidden;
+      padding: 66px 28px;
+      border: 1px solid rgba(211, 166, 91, .55);
+      background:
+        linear-gradient(180deg, rgba(23, 19, 17, .08), rgba(23, 19, 17, .72)),
+        radial-gradient(ellipse at 50% 42%, rgba(161, 67, 45, .55), transparent 49%),
+        #29201b;
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .poster::before,
+    .poster::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+    }
+
+    .poster::before {
+      inset: 13px;
+      border: 1px solid rgba(240, 223, 192, .32);
+    }
+
+    .poster::after {
+      top: 13%;
+      left: 50%;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(240, 223, 192, .1);
+      border-radius: 50%;
+      box-shadow: 0 0 0 28px rgba(240, 223, 192, .025), 0 0 0 58px rgba(240, 223, 192, .02);
+      transform: translateX(-50%);
+    }
+
+    .poster-content { width: min(100%, 680px); }
+
+    .eyebrow {
+      margin: 0 0 23px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.2rem, 11vw, 7.7rem);
+      font-weight: 400;
+      letter-spacing: -.075em;
+      line-height: .83;
+      text-wrap: balance;
+    }
+
+    h1 em {
+      display: block;
+      margin-top: .13em;
+      color: var(--red);
+      font-size: .78em;
+      font-weight: 400;
+      letter-spacing: -.065em;
+    }
+
+    .poster-note {
+      max-width: 420px;
+      margin: 31px auto 0;
+      color: var(--muted-paper);
+      font-size: 1.03rem;
+      line-height: 1.7;
+    }
+
+    .heart { color: var(--red); }
+
+    .date-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 33px;
+      padding: 12px 17px;
+      border: 1px solid rgba(211, 166, 91, .6);
+      color: var(--paper);
+      font-family: Arial, sans-serif;
+      font-size: .74rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .date-stamp::before,
+    .date-stamp::after {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      content: "";
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 22px;
+      border-block: 1px solid var(--line);
+    }
+
+    .detail {
+      min-height: 134px;
+      padding: 25px 22px;
+      border-right: 1px solid var(--line);
+    }
+
+    .detail:last-child { border-right: 0; }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      font-size: 1.1rem;
+      line-height: 1.45;
+    }
+
+    .detail-value small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted-paper);
+      font-size: .88rem;
+    }
+
+    .note {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 25px;
+      padding: 32px 0 38px;
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--muted-paper);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .note p strong { color: var(--paper); font-weight: 400; }
+
+    .rsvp {
+      min-width: 160px;
+      padding: 15px 20px;
+      border: 1px solid var(--red);
+      background: var(--red);
+      color: #fff3e2;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .rsvp:hover {
+      background: transparent;
+      color: var(--paper);
+      transform: translateY(-2px);
+    }
+
+    .rsvp:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .reply {
+      min-height: 1.4em;
+      margin: -20px 0 22px;
+      color: var(--gold);
+      font-size: .95rem;
+      text-align: right;
+    }
+
+    .surprise {
+      width: min(440px, calc(100% - 32px));
+      padding: 38px 30px 30px;
+      border: 1px solid var(--gold);
+      background:
+        radial-gradient(ellipse at 50% 0, rgba(198, 75, 55, .28), transparent 70%),
+        #211a17;
+      color: var(--paper);
+      text-align: center;
+      box-shadow: 0 24px 90px rgba(0, 0, 0, .7), 0 0 45px rgba(198, 75, 55, .18);
+    }
+
+    .surprise[open] { animation: surprise-appear .45s ease-out both; }
+
+    .surprise::backdrop {
+      background: rgba(8, 6, 6, .82);
+      backdrop-filter: blur(5px);
+    }
+
+    .surprise-ghost {
+      display: block;
+      margin-bottom: 15px;
+      font-size: 4rem;
+      animation: ghost-float 2.4s ease-in-out infinite;
+    }
+
+    .surprise h2 {
+      margin: 0;
+      color: var(--paper);
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+    }
+
+    .surprise p {
+      margin: 16px 0 24px;
+      color: var(--muted-paper);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .surprise p strong { color: var(--red); font-weight: 400; }
+
+    .surprise-close {
+      padding: 13px 20px;
+      border: 1px solid var(--red);
+      background: var(--red);
+      color: #fff3e2;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .surprise-close:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    @keyframes surprise-appear {
+      from { opacity: 0; transform: scale(.88) translateY(14px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes ghost-float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-9px) rotate(5deg); }
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 17px 0 25px;
+      border-top: 1px solid var(--line);
+      color: #998b76;
+      font-family: Arial, sans-serif;
+      font-size: .65rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 720px) {
+      .poster { min-height: 560px; }
+      .details { grid-template-columns: repeat(2, 1fr); }
+      .detail:nth-child(2) { border-right: 0; }
+      .detail:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 480px) {
+      .page { width: min(100% - 24px, 1060px); }
+      .topline { padding-block: 19px; font-size: .57rem; }
+      .poster { min-height: 520px; padding-inline: 21px; }
+      .poster::before { inset: 9px; }
+      .eyebrow { font-size: .62rem; letter-spacing: .22em; }
+      .poster-note { font-size: .94rem; }
+      .date-stamp { font-size: .65rem; letter-spacing: .1em; }
+      .detail { min-height: 120px; padding: 20px 15px; }
+      .detail-value { font-size: 1rem; }
+      .note { grid-template-columns: 1fr; gap: 18px; }
+      .rsvp { width: 100%; }
+      .reply { margin-top: -7px; text-align: center; }
+      footer { font-size: .55rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topline">
+      <span>A tiny invitation</span>
+      <span>October 31, 2026</span>
+    </header>
+
+    <section class="poster" aria-labelledby="invitation-title">
+      <div class="poster-content">
+        <p class="eyebrow">One night · One movie · You &amp; me</p>
+        <h1 id="invitation-title">A little date<em>with a little fright</em></h1>
+        <p class="poster-note">
+          I have a movie date in mind, and I can't think of anyone I'd rather watch it with.
+          Will you be my favorite person in the audience? <span class="heart" aria-label="love">♥</span>
+        </p>
+        <div class="date-stamp">Saturday, October 31 · 10 AM</div>
+      </div>
+    </section>
+
+    <section class="details" aria-label="Movie date details">
+      <div class="detail">
+        <span class="detail-label">The feature</span>
+        <div class="detail-value">Sine-Sindak<small>VHS Viva Horror Stories</small></div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">The date</span>
+        <div class="detail-value">October 31, 2026<small>Saturday · 10:00 AM</small></div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">The theater</span>
+        <div class="detail-value">SM City Taytay<small>Rizal</small></div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Meet me at</span>
+        <div class="detail-value">Watsons<small>SM City Taytay</small></div>
+      </div>
+    </section>
+
+    <section class="note" aria-label="RSVP">
+      <p><strong>Come for the scary movie, stay for the company.</strong><br>
+        I'll meet you at Watsons. Just bring yourself (and maybe someone to hide behind).</p>
+      <button class="rsvp" id="rsvp-button" type="button" aria-describedby="rsvp-reply">I'd love to!</button>
+    </section>
+    <p class="reply" id="rsvp-reply" aria-live="polite"></p>
+
+    <footer>
+      <span>Made just for you</span>
+      <span>Save me a seat? <span class="heart">♥</span></span>
+    </footer>
+  </main>
+  <dialog class="surprise" id="date-surprise" aria-labelledby="surprise-title" aria-describedby="surprise-message">
+    <span class="surprise-ghost" aria-hidden="true">👻</span>
+    <p class="eyebrow">A message from your date</p>
+    <h2 id="surprise-title">I knew you'd say yes...</h2>
+    <p id="surprise-message">
+      Now you're <strong>mine for the night</strong>—for screams, snacks, and maybe holding hands
+      when the scary parts begin. Can't wait for our little Halloween date. <span class="heart">♥</span>
+    </p>
+    <form method="dialog">
+      <button class="surprise-close" type="submit" autofocus>Okay, my spooky love</button>
+    </form>
+  </dialog>
+  <script>
+    const rsvpButton = document.querySelector("#rsvp-button");
+    const rsvpReply = document.querySelector("#rsvp-reply");
+    const dateSurprise = document.querySelector("#date-surprise");
+
+    rsvpButton.addEventListener("click", () => {
+      rsvpButton.textContent = "It's a date!";
+      rsvpReply.textContent = "Yay! Can't wait to see you there. ♥";
+      dateSurprise.showModal();
+    });
+  </script>
+</body>
+</html>
